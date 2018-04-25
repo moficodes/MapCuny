@@ -27,6 +27,28 @@ export default class App extends React.Component {
       });
   }
 
+  renderMarkers() {
+    return this.state.isLoading
+      ? null
+      : this.state.markers.map((marker, index) => {
+          const coords = {
+            latitude: marker.latitude,
+            longitude: marker.longitude
+          };
+
+          const metadata = `Status: ${marker.statusValue}`;
+
+          return (
+            <MapView.Marker
+              key={index}
+              coordinate={coords}
+              title={marker.stationName}
+              description={metadata}
+            />
+          );
+        });
+  }
+
   render() {
     return (
       <MapView
@@ -39,25 +61,7 @@ export default class App extends React.Component {
           longitudeDelta: 0.0421
         }}
       >
-        {this.state.isLoading
-          ? null
-          : this.state.markers.map((marker, index) => {
-              const coords = {
-                latitude: marker.latitude,
-                longitude: marker.longitude
-              };
-
-              const metadata = `Status: ${marker.statusValue}`;
-
-              return (
-                <MapView.Marker
-                  key={index}
-                  coordinate={coords}
-                  title={marker.stationName}
-                  description={metadata}
-                />
-              );
-            })}
+        {this.renderMarkers()}
       </MapView>
     );
   }
