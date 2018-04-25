@@ -10,12 +10,15 @@
     "slug": "map-cuny",
     "sdkVersion": "26.0.0",
     "ios": {
-      "bundleIdentifier": "com.codingmechanic.mapcuny"
+      "bundleIdentifier": "com.codingmechanic.mapcuny",
+      "config": {
+        "googleMapsApiKey": "YOUR IOS API KEY HERE"
+      }
     },
     "android": {
       "package": "com.codingmechanic.mapcuny",
       "config": {
-        "googleMaps": { "apiKey": "YOUR API KEY HERE" }
+        "googleMaps": { "apiKey": "YOUR ANDROID API KEY HERE" }
       }
     }
   }
