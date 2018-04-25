@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "map-cuny",
+    "description": "Map App Demo Built at Cuny Hackathon 2018",
+    "icon": "./assets/icon.png",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": ["ios", "android"],
+    "orientation": "portrait",
+    "slug": "map-cuny",
+    "sdkVersion": "26.0.0",
+    "ios": {
+      "bundleIdentifier": "com.codingmechanic.mapcuny"
+    },
+    "android": {
+      "package": "com.codingmechanic.mapcuny",
+      "config": {
+        "googleMaps": { "apiKey": "YOUR API KEY HERE" }
+      }
+    }
+  }
+}
