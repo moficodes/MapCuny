@@ -13,6 +13,8 @@ import { NYC_OPEN_DATA_API } from "../constants/secret";
 import { WIFI_HOTSPOTS_URL, LIBRARY_LOCATIONS_URL } from "../constants/urls";
 import library from "../../assets/markers/library.png";
 import wifi from "../../assets/markers/wifi.png";
+import nightStyle from "../mapstyles/night.json";
+import retro from "../mapstyles/retro.json";
 
 const LAT_DELTA = 0.0922;
 const LONG_DELTA = 0.0421;
@@ -181,10 +183,12 @@ export default class HackathonDemo extends React.Component {
           style={styles.container}
           provider="google"
           region={this.state.region}
+          customMapStyle={retro}
         >
           {this.renderLibraryMarkers()}
           {this.renderWifiMarkers()}
         </MapView>
+        <View style={{ height: 40 }} />
         <Button
           style={styles.buttonStyle}
           title={this.state.buttonTitle}
@@ -216,10 +220,12 @@ const styles = {
     bottom: 0
   },
   buttonStyle: {
+    flex: 1,
     position: "absolute",
     top: 40,
     left: 20,
-    right: 20
+    right: 20,
+    height: 20
   },
   innerStyle: {
     backgroundColor: "rgba(92, 99,216, .2)",
@@ -230,8 +236,7 @@ const styles = {
   },
   viewStyle: {
     position: "absolute",
-    flex: 1,
-    top: 85,
+    top: 145,
     left: 20,
     right: 20,
     backgroundColor: "#fff",
